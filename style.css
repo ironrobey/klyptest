@@ -1,0 +1,132 @@
+*{ margin: 0; padding: 0; color: #666; }
+
+#wrap{ 
+	width: 1170px; 
+	margin-right: auto; 
+	margin-left: auto; 
+	padding-left: 15px; 
+	padding-right: 15px; 
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+#wrap > div { float: left; }
+#left{ 
+	width: 20%; 
+	padding-left: 15px;
+	padding-right: 15px;
+}
+	#left form{ 
+		border: 1px solid #ddd; 
+		padding: 15px; 
+		margin-top: 15px;
+		overflow: hidden; 
+	}
+		#left form .input_block{
+			display: block;
+			overflow: hidden;
+		}
+			#left form input[name="q"]{
+				float: left;
+				margin-right: 5px;
+			}
+			#left form label{ 
+				display: block; 
+				margin: 0 0 15px; 
+				font-size: 14px;
+				float: left;
+			}
+		#left form input[name="submit"]{ 
+			padding: 5px; 
+			float: right; 
+			background: none; 
+			border: 1px solid #ccc; 
+			cursor: pointer; 
+			border-radius: 4px; 
+			font-size: 15px; 
+		}
+
+#right{ 
+	width: 70%; 
+}
+	#right .movies{
+		width: 25%;
+		padding: 15px;
+		margin: 15px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		float: left;
+	}
+	#right .title{ 
+		padding-left: 15px; 
+		margin-bottom: 0; 
+	}
+	#right img{ 
+		float: left; 
+		margin-right: 10px; 
+		height: 75px; 
+	}
+	#right h3{ 
+		font-size: 12px; 
+		font-weight: normal; 
+	}
+		#right h3 span{ 
+			font-weight: bold; 
+		}
+
+	#right ul{ 
+		overflow: hidden; 
+		list-style: none;
+		 clear: left; 
+		 float: right; 
+		 margin: 0 30px 0 15px; 
+	}
+		#right ul li{ 
+			float: left; 
+		}
+			#right ul li a{ 
+				display: block; 
+				text-decoration: none; 
+				padding: 5px 10px; 
+				margin: 0 5px; 
+				border: 1px solid #ccc; 
+				font-size: 13px; 
+			}
+	
+#left form input[name="submit"]:hover,
+#right ul li a:hover,
+#right ul li.active a{
+	background: #e6e6e6;
+	border-color: #adadad;
+}
+.title{ 
+	font-size: 15px; 
+	font-weight: bold; 
+	margin: 15px 0 10px; 
+}
+
+.red{
+	background: #d9534f;
+	border: 1px solid #d43f3a;
+}
+
+.blue{
+	background: #428bca;
+	border: 1px solid #357ebd;
+}
+
+.green{
+	background: #5cb85c;
+	border: 1px solid #4cae4c;
+}
+
+.yellow{
+	background: #f0ad4e;
+	border: 1px solid #eea236;
+}
+
+.red h3, .blue h3, 
+.green h3, .yellow h3,
+.red h3 span, .blue h3 span, 
+.green h3 span, .yellow h3 span{
+	color: #fff;
+}
