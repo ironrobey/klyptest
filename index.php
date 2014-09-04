@@ -1,12 +1,15 @@
 <?php 
+//include process class 
 include( 'process.php' );
+
+//instantiate class
 $process = new Process(); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Rotten Tomatoes Application</title>
+	<title>Klyp Developer Test</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,12 +19,12 @@ $process = new Process();
 			<form action="#" method="GET">
 				
 				<?php $colors = array( 'red', 'green', 'blue', 'yellow' ); ?>
-				<?php $q = ( isset( $_GET['q'] ) ? $_GET['q'] : 'red' ); ?>
-				<?php $p = ( isset( $_GET['p'] ) ? $_GET['p'] : 1 ); ?>
+				<?php $q = ( isset( $_GET['q'] ) ? $_GET['q'] : 'red' ); ?> <!-- check if q has value or not else use default value -->
+				<?php $p = ( isset( $_GET['p'] ) ? $_GET['p'] : 1 ); ?> <!-- check if q has value or not else use default vaalue -->
 
 				<?php foreach( $colors as $color ): ?>
 					<span class="input_block">
-						<input type="radio" name="q" id="<?php echo $color; ?>" value="<?php echo $color; ?>"<?php echo ( isset( $q ) && $q == $color ? ' checked="checked"' : ''); ?>> <label for="<?php echo $color; ?>"><?php echo ucwords($color); ?></label>
+						<input type="radio" name="q" id="<?php echo $color; ?>" value="<?php echo $color; ?>"<?php echo ( isset( $q ) && $q == $color ? ' checked="checked"' : ''); ?>> <label for="<?php echo $color; ?>"><?php echo ucwords($color); ?></label> 
 					</span>
 				<?php endforeach; ?>
 
@@ -32,10 +35,11 @@ $process = new Process();
 		<div id="right">
 			<h2 class="title">Movies</h2>
 
-			<?php $results = $process->_request( $q, $p ); ?>
-
+			<?php $results = $process->_request( $q, $p ); ?> <!-- get api result, pass the parameters needed -->
+			
+			<!-- parse the results -->
 			<?php foreach( $results->movies as $movie ): ?>
-
+				
 				<?php extract( $process->qMatch( $q, $movie->title ) ); ?>
 
 				<div class="movies<?php echo ( $bg_color != null ? ' '.$bg_color : '' ); ?>">
@@ -58,6 +62,7 @@ $process = new Process();
 
 			<?php endforeach; ?>
 			
+			<!-- for testing purposes only, pagination upto 3rd page only -->
 			<ul>
 				<?php for( $i=1; $i<=3 ; $i++ ): ?>
 				<li<?php echo ( $p == $i ? ' class="active"' : '' ); ?>><a href="?q=<?php echo $q; ?>&amp;p=<?php echo $i; ?>"><?php echo $i; ?></a></li>
